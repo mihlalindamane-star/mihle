@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Mihle, From Mihlali</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #ffe3ec 0%, #ffb3c6 100%);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #4a0e17;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            text-align: center;
+            overflow-x: hidden;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(10px);
+            padding: 40px 30px;
+            border-radius: 24px;
+            box-shadow: 0 10px 30px rgba(217, 4, 41, 0.15);
+            max-width: 450px;
+            width: 90%;
+            margin: 20px;
+            border: 2px solid #ff85a1;
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            color: #c9184a;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            color: #a11d33;
+            font-style: italic;
+            margin-bottom: 25px;
+        }
+
+        p {
+            font-size: 1.05rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .highlight {
+            font-weight: bold;
+            color: #ff4d6d;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            background-color: #ff4d6d;
+            color: white;
+            padding: 15px 30px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 50px;
+            box-shadow: 0 5px 15px rgba(255, 77, 109, 0.4);
+            transition: all 0.3s ease;
+            margin-top: 15px;
+        }
+
+        .cta-btn:hover {
+            background-color: #c9184a;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(199, 24, 74, 0.6);
+        }
+
+        /* Music Controls styling */
+        .music-box {
+            margin-top: 25px;
+            background: #ffccd5;
+            padding: 10px 15px;
+            border-radius: 12px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.9rem;
+        }
+
+        /* Ambient floating hearts */
+        .heart {
+            position: absolute;
+            color: rgba(255, 77, 109, 0.4);
+            animation: float 6s linear infinite;
+            font-size: 20px;
+            z-index: -1;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Floating Background Hearts -->
+    <script>
+        for (let i = 0; i < 15; i++) {
+            let heart = document.createElement('div');
+            heart.className = 'heart';
+            heart.innerHTML = '❤️';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDelay = Math.random() * 5 + 's';
+            heart.style.fontSize = Math.random() * 15 + 15 + 'px';
+            document.body.appendChild(heart);
+        }
+    </script>
+
+    <div class="container">
+        <h1>Hey Mihle ✨</h1>
+        <div class="subtitle">A little message from Mihlali</div>
+        
+        <p>I know you've been working incredibly hard, buried under all those intensive <span class="highlight">Accounting modules</span>. 📚</p>
+        
+        <p>We've crossed paths a few times over the last three years, and though I was always a bit too nervous to say something then, I didn't want to let another moment pass by without trying.</p>
+        
+        <p>You wrap up your final exams on the <span class="highlight">20th</span>, and you deserve to celebrate properly! Once the stress is completely behind you, I would love to take you out on a romantic date to unwind. Let me treat you.</p>
+        
+        <p>If you're keen, tap below to text me and we'll work out a perfect day and time together:</p>
+
+        <!-- WhatsApp Link with Pre-filled Text -->
+        <a href="https://wa.me" class="cta-btn" target="_blank">
+            💬 Let's Do It!
+        </a>
+
+        <!-- Background Music Element -->
+        <div class="music-box">
+            🎵 
+            <!-- Note: Modern browsers block autoplay until a user clicks anywhere on the page. 
+                 Replace the src URL below with your preferred direct audio link (.mp3) -->
+            <audio id="bg-music" src="https://soundhelix.com" preload="auto" loop></audio>
+            <span id="music-status">Tap anywhere on the screen to play music!</span>
+        </div>
+    </div>
+
+    <script>
+        // Unlocks audio on first click anywhere on the page (browser safety protocol)
+        document.addEventListener('click', function() {
+            var audio = document.getElementById('bg-music');
+            if (audio.paused) {
+                audio.play();
+                document.getElementById('music-status').innerText = "Playing your background track... ✨";
+            }
+        });
+    </script>
+
+</body>
+</html>
